@@ -14,19 +14,22 @@ if (!$conn) {
 }
 
 // Query the database to get the data you want to display
-$sql = "SELECT Id,status,response FROM outpass";
+$sql = "SELECT Id,fromd,tod,days,status,response FROM outpass";
 $result = mysqli_query($conn, $sql);
 
 // Check if any rows were returned
 if (mysqli_num_rows($result) > 0) {
   // Create a table to display the data
   echo "<table>";
-  echo "<tr><th>ID</th><th>Status</th><th>Response</th></tr>";
+  echo "<tr><th>ID</th><th>fromdate</th><th>todate</th><th>days</th><th>Status</th><th>Response</th></tr>";
   
   // Loop through each row and display the data
   while ($row = mysqli_fetch_assoc($result)) {
     echo "<tr>";
     echo "<td>" . $row["Id"] . "</td>";
+    echo "<td>" . $row["fromd"] . "</td>";
+    echo "<td>" . $row["tod"] . "</td>";
+    echo "<td>" . $row["days"] . "</td>";
     echo "<td>" . $row["status"] . "</td>";
     echo "<td>" . $row["response"]. "</td>";
     echo "</tr>";
