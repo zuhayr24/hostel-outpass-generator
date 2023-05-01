@@ -37,7 +37,8 @@ if ($result->num_rows > 0) {
         echo "Error: " . $sql . "<br>" . $conn->error;
     }
 }
-
+echo"<br>";
+echo "<a href='show.html'>back</a>";
 $conn->close();
 
 ?>
