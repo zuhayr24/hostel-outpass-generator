@@ -1,4 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Username and Password Form</title>
+	<style>
+		table {
+		
+		background-color: lightgrey;
+  		border: 1px solid black;
+  		border-spacing: 10px;
+      width:700px;
+      
+		}
 
+		th, td {
+		  padding: 10px;
+		  
+		}
+		input{
+			width: 500px;
+        	height: 50px;
+		}
+		button{
+			width: 500px;
+      height: 50px;
+			background-color: brown;
+			color: white;
+		}
+    table, th, td {
+    border-collapse: collapse;
+    border: 1px solid black;
+    
+}
+	  </style></head>
 <?php
 $host = "localhost";
 $username = "root";
@@ -15,6 +48,8 @@ $sql = "SELECT Id,fromd,tod,days,status,response FROM outpass";
 $result = mysqli_query($conn, $sql);
 
 if (mysqli_num_rows($result) > 0) {
+  echo"<center>";
+  echo"<h1>STUDENT OUTPASS STATUS</h1>";
   echo "<table>";
   echo "<tr><th>ID</th><th>fromdate</th><th>todate</th><th>days</th><th>Status</th><th>Response</th></tr>";
   
@@ -38,13 +73,13 @@ if (mysqli_num_rows($result) > 0) {
   
     echo "</tr>";
 }
-
   echo "</table>";
+  echo "</center>";
 } else {
   echo "No data found";
 }
-echo "<a href='show.html'>back</a>";
 
 mysqli_close($conn);
 ?>
-
+<br>
+<center><a href="show.html">Back</a></center?

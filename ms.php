@@ -1,3 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Username and Password Form</title>
+	<style>
+    p{
+        margin-top: 100px;
+        font-size:30px;
+    }
+	  </style></head>
 <?php
 session_start();
 $reg = $_SESSION['username'];
@@ -26,19 +36,24 @@ $sql = "SELECT * FROM outpass WHERE reg='$reg' AND fromd='$fromd' AND tod='$tod'
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
-    echo "You have already requested for outpass so please wait!!";
+    echo"<center>";
+    echo "<p>You have already requested for outpass so please wait!!</p>";
+    echo"</center>";
 } else {
     // Insert data into database
     $sql = "INSERT INTO outpass (reg,fromd,tod,days,dest,reason) VALUES ('$reg','$fromd', '$tod','$days','$des','$reason')";
 
     if ($conn->query($sql) === TRUE) {
-        echo "successfully recorded";
+        echo"<center>";
+        echo "<p>Your Details have been successfully recorded</p>";
+        echo"</center>";
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
     }
 }
 echo"<br>";
-echo "<a href='show.html'>back</a>";
 $conn->close();
 
+
 ?>
+<center><a href="show.html">Back</a></center>

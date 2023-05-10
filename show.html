@@ -5,31 +5,53 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+    table {
+      margin-top: 50px;
+      background-color: lightgrey;
+        border: 1px solid black;
+        border-collapse: separate;
+        border-spacing: 10px;
+        border-radius: 5%;
+      }
+  
+      th, td {
+        padding: 10px;
+        
+      }
+      input{
+        width: 350px;
+          height: 50px;
+      }
+      button{
+        width: 350px;
+        height: 50px;
+        background-color: brown;
+        color: white;
+      }
+    </style>
 </head>
 <body>
+  <center>
+  <table>
+    <tr><th >FILL THE DETAILS</th></tr>
     <form method="POST" action="ms.php">
-        <label for="fromd">Start Date:</label>
-        <input type="date" id="fromd" name="fromd" oninput="calculateDays()" required>
-          
-        <label for="tod">End Date:</label>
-        <input type="date" id="tod" name="tod" oninput="calculateDays()" required>
-          
-        <label for="days">Number of Days:</label>
-        <input type="text" id="days" name="days" readonly>
-          
-        <label for="dest">Destination:</label>
-        <input type="text" id="dest" name="dest" required>
-          
-        <label for="reason">Reason:</label>
-        <input type="text" id="reason" name="reason" required>
-
-        <input type="submit" value="Submit" onclick="calculateDays()"> 
+      <tr><th><input type="text" id="fromd" name="fromd" oninput="calculateDays()" required placeholder="Enter the Start Date" onfocus="(this.type='date')" onblur="(this.type='text')"></th></tr>
+      <tr><th><input type="text" id="tod" name="tod" oninput="calculateDays()" required required placeholder="Enter the End Date" onfocus="(this.type='date')" onblur="(this.type='text')"></th></tr>
+      <tr><th><input type="text" id="days" name="days" readonly placeholder="Enter the number of days proposed to stay"></th></tr>
+      <tr><th><input type="text" id="dest" name="dest" required placeholder="Enter the destination"></th></tr>
+      <tr><th><input type="text" id="reason" name="reason" required placeholder="Enter the reason for stay"></th></tr>
+      <tr><th><button type="submit" value="Submit" onclick="calculateDays()">SUBMIT</button></th></tr>   
       </form>
+        
     <form method="POST" action="studentstat.php">
-        <button type="submit">Show</button>
+      <tr><th style=" padding: 0px;"><button style="margin-top: 5px;border:none;background-color:lightgray;color:black;text-decoration: underline;color:black;font-family:Times New Roman" type="submit"><b>SHOW THE OUTPASS STATUS</b></button></th></tr> 
+          
     </form>
-    <a href="student.html">back</a>
+    <tr><th ><a href="index.html">Back</a></th></tr>   
+  </table>
 
+</center>
       <script>
       function calculateDays() {
         var startDate = document.getElementById("fromd").value;
